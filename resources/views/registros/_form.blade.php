@@ -180,7 +180,7 @@
     </section>
 
     <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
-        <a href="{{ $editing ? route('registros.show', $registro) : route('registros.index') }}" class="btn-secondary">Volver</a>
+        <a href="{{ $editing ? route('registros.show', $registro, false) : route('registros.index', [], false) }}" class="btn-secondary">Volver</a>
         <button type="submit" class="btn-primary">{{ $editing ? 'Actualizar registro' : 'Guardar registro' }}</button>
     </div>
 </div>

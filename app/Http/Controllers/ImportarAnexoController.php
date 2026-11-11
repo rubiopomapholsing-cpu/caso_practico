@@ -31,7 +31,7 @@ class ImportarAnexoController extends Controller
         }
 
         try {
-            $import = new AnexoAImport();
+            $import = new AnexoAImport;
             Excel::import($import, $data['archivo']);
 
             $mapped = $mapper->map($import->sheets());
@@ -69,7 +69,7 @@ class ImportarAnexoController extends Controller
         }
 
         return redirect()
-            ->route('anexos.show', $anexo)
+            ->away(route('anexos.show', $anexo, false))
             ->with('success', 'Archivo importado correctamente en un nuevo anexo. Revisa los datos cargados antes de continuar.');
     }
 }

@@ -4,7 +4,7 @@
 @section('page-title', 'Editar anexo')
 
 @section('content')
-    <form action="{{ route('anexos.update', $anexo) }}" method="POST">
+    <form action="{{ route('anexos.update', $anexo, false) }}" method="POST">
         @csrf
         @method('PUT')
         @include('anexos._form')

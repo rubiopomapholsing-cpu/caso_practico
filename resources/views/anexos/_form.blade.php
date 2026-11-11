@@ -55,7 +55,7 @@
     </section>
 
     <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
-        <a href="{{ $editing ? route('anexos.show', $anexo) : route('anexos.index') }}" class="btn-secondary">Volver</a>
+        <a href="{{ $editing ? route('anexos.show', $anexo, false) : route('anexos.index', [], false) }}" class="btn-secondary">Volver</a>
         <button type="submit" class="btn-primary">{{ $editing ? 'Actualizar anexo' : 'Guardar anexo' }}</button>
     </div>
 </div>

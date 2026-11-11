@@ -11,7 +11,7 @@
             <h3 class="font-display text-xl font-bold text-slate-900">Anexos registrados</h3>
             <p class="mt-1 text-sm text-slate-500">La empresa es única y fija. Aquí administras cada anexo que luego exportas por separado.</p>
         </div>
-        <a href="{{ route('anexos.create') }}" class="btn-primary">Nuevo anexo</a>
+        <a href="{{ route('anexos.create', [], false) }}" class="btn-primary">Nuevo anexo</a>
     </div>
 
     <section class="card-panel mt-6">
@@ -64,13 +64,13 @@
                                 <td class="px-4 py-4">{{ $anexo->registros_count }}</td>
                                 <td class="px-4 py-4">
                                     <div class="flex flex-wrap gap-2">
-                                        <a href="{{ route('anexos.show', $anexo) }}" class="btn-table">Ver</a>
-                                        <a href="{{ route('anexos.edit', $anexo) }}" class="btn-table">Editar</a>
-                                        <a href="{{ route('anexos.exportar.excel', $anexo) }}" class="btn-table">Exportar Excel</a>
+                                        <a href="{{ route('anexos.show', $anexo, false) }}" class="btn-table">Ver</a>
+                                        <a href="{{ route('anexos.edit', $anexo, false) }}" class="btn-table">Editar</a>
+                                        <a href="{{ route('anexos.exportar.excel', $anexo, false) }}" class="btn-table">Exportar Excel</a>
                                         @if ($pdfDisponible)
-                                            <a href="{{ route('anexos.exportar.pdf', $anexo) }}" class="btn-table">Exportar PDF</a>
+                                            <a href="{{ route('anexos.exportar.pdf', $anexo, false) }}" class="btn-table">Exportar PDF</a>
                                         @endif
-                                        <form action="{{ route('anexos.destroy', $anexo) }}" method="POST" onsubmit="return confirm('¿Deseas eliminar este anexo y todos sus registros?');">
+                                        <form action="{{ route('anexos.destroy', $anexo, false) }}" method="POST" onsubmit="return confirm('¿Deseas eliminar este anexo y todos sus registros?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn-table-danger">Eliminar</button>

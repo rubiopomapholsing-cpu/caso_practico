@@ -10,15 +10,15 @@
             <p class="mt-1 text-sm text-slate-500">Detalle completo de la fila del Anexo A.</p>
         </div>
         <div class="flex flex-wrap gap-2">
-            <a href="{{ route('registros.edit', $registro) }}" class="btn-primary">Editar</a>
-            <a href="{{ route('registros.exportar.excel', $registro) }}" class="btn-secondary">Exportar Excel</a>
-            <a href="{{ route('registros.index') }}" class="btn-secondary">Volver</a>
+            <a href="{{ route('registros.edit', $registro, false) }}" class="btn-primary">Editar</a>
+            <a href="{{ route('registros.exportar.excel', $registro, false) }}" class="btn-secondary">Exportar Excel</a>
+            <a href="{{ route('registros.index', [], false) }}" class="btn-secondary">Volver</a>
         </div>
     </div>
 
     <section class="card-panel mt-6">
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <div><p class="detail-label">Anexo</p><p class="detail-value"><a href="{{ route('anexos.show', $registro->anexo) }}" class="text-cyan-700 hover:text-cyan-900">{{ $registro->anexo?->titulo ?: 'Sin anexo' }}</a></p></div>
+            <div><p class="detail-label">Anexo</p><p class="detail-value"><a href="{{ route('anexos.show', $registro->anexo, false) }}" class="text-cyan-700 hover:text-cyan-900">{{ $registro->anexo?->titulo ?: 'Sin anexo' }}</a></p></div>
             <div><p class="detail-label">{{ config('anexo.column_labels.item') }}</p><p class="detail-value">{{ $registro->item }}</p></div>
             <div><p class="detail-label">{{ config('anexo.column_labels.codigo_unidad') }}</p><p class="detail-value">{{ $registro->codigo_unidad ?: 'Sin dato' }}</p></div>
             <div><p class="detail-label">{{ config('anexo.column_labels.expediente_siged') }}</p><p class="detail-value">{{ $registro->expediente_siged ?: 'Sin dato' }}</p></div>

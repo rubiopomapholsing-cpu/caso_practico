@@ -12,10 +12,10 @@
             <p class="mt-1 text-sm text-slate-500">{{ config('anexo.title') }}</p>
         </div>
         <div class="flex flex-wrap gap-2">
-            <a href="{{ route('registros.create', ['anexo_id' => $anexo->id]) }}" class="btn-primary">Nuevo registro</a>
-            <a href="{{ route('anexos.exportar.excel', $anexo) }}" class="btn-secondary">Exportar Excel</a>
+            <a href="{{ route('registros.create', ['anexo_id' => $anexo->id], false) }}" class="btn-primary">Nuevo registro</a>
+            <a href="{{ route('anexos.exportar.excel', $anexo, false) }}" class="btn-secondary">Exportar Excel</a>
             @if ($pdfDisponible)
-                <a href="{{ route('anexos.exportar.pdf', $anexo) }}" class="btn-secondary">Exportar PDF</a>
+                <a href="{{ route('anexos.exportar.pdf', $anexo, false) }}" class="btn-secondary">Exportar PDF</a>
             @endif
         </div>
     </div>
@@ -41,7 +41,7 @@
                 <h3 class="font-display text-xl font-bold text-slate-900">Registros relacionados</h3>
                 <p class="mt-1 text-sm text-slate-500">{{ $anexo->registros->count() }} fila(s) asociadas a este anexo.</p>
             </div>
-            <a href="{{ route('anexos.index') }}" class="btn-secondary">Volver</a>
+            <a href="{{ route('anexos.index', [], false) }}" class="btn-secondary">Volver</a>
         </div>
 
         @if ($anexo->registros->isEmpty())
@@ -72,8 +72,8 @@
                                 <td class="px-4 py-3"><x-boolean-badge :value="$registro->visitado" /></td>
                                 <td class="px-4 py-3">
                                     <div class="flex flex-wrap gap-2">
-                                        <a href="{{ route('registros.show', $registro) }}" class="btn-table">Ver</a>
-                                        <a href="{{ route('registros.edit', $registro) }}" class="btn-table">Editar</a>
+                                        <a href="{{ route('registros.show', $registro, false) }}" class="btn-table">Ver</a>
+                                        <a href="{{ route('registros.edit', $registro, false) }}" class="btn-table">Editar</a>
                                     </div>
                                 </td>
                             </tr>

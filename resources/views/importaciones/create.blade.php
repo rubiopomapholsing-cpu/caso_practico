@@ -18,10 +18,10 @@
                 <p class="text-sm font-semibold text-cyan-900">Exportación por anexo</p>
                 <p class="mt-1 text-sm text-cyan-800">La descarga del Excel se hace desde el detalle del anexo seleccionado para no mezclar registros.</p>
             </div>
-            <a href="{{ route('anexos.index') }}" class="btn-primary">Ir a Anexos</a>
+            <a href="{{ route('anexos.index', [], false) }}" class="btn-primary">Ir a Anexos</a>
         </div>
 
-        <form action="{{ route('importaciones.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('importaciones.store', [], false) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
             <div>
                 <label class="form-label" for="archivo">Archivo Excel (.xlsx o .xls)</label>
@@ -33,7 +33,7 @@
             </div>
 
             <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
-                <a href="{{ route('dashboard') }}" class="btn-secondary">Volver</a>
+                <a href="{{ route('dashboard', [], false) }}" class="btn-secondary">Volver</a>
                 <button type="submit" class="btn-primary">Importar archivo</button>
             </div>
         </form>

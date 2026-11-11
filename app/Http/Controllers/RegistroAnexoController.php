@@ -21,7 +21,8 @@ class RegistroAnexoController extends Controller
             ->orderBy('anexo_id')
             ->orderBy('item')
             ->paginate(15)
-            ->withQueryString();
+            ->withQueryString()
+            ->withPath(route('registros.index', [], false));
 
         return view('registros.index', [
             'registros' => $registros,
@@ -31,7 +32,7 @@ class RegistroAnexoController extends Controller
             'personalEsOptions' => RegistroAnexo::query()->whereNotNull('personal_es')->where('personal_es', '!=', '')->distinct()->orderBy('personal_es')->pluck('personal_es'),
             'meses' => $this->meses(),
             'anios' => RegistroAnexo::query()->selectRaw('YEAR(created_at) as anio')->whereNotNull('created_at')->distinct()->orderByDesc('anio')->pluck('anio')->filter(),
-                    ]);
+        ]);
     }
 
     public function create(Request $request): View|RedirectResponse
@@ -40,7 +41,7 @@ class RegistroAnexoController extends Controller
 
         if ($anexos->isEmpty()) {
             return redirect()
-                ->route('anexos.create')
+                ->away(route('anexos.create', [], false))
                 ->with('error', 'Primero debes crear un anexo antes de registrar filas.');
         }
 
@@ -80,7 +81,7 @@ class RegistroAnexoController extends Controller
         }
 
         return redirect()
-            ->route('registros.show', $registro)
+            ->away(route('registros.show', $registro, false))
             ->with('success', 'Registro creado correctamente.');
     }
 
@@ -126,7 +127,7 @@ class RegistroAnexoController extends Controller
         }
 
         return redirect()
-            ->route('registros.show', $registro)
+            ->away(route('registros.show', $registro, false))
             ->with('success', 'Registro actualizado correctamente.');
     }
 
@@ -135,7 +136,7 @@ class RegistroAnexoController extends Controller
         $registro->delete();
 
         return redirect()
-            ->route('registros.index')
+            ->away(route('registros.index', [], false))
             ->with('success', 'Registro eliminado correctamente.');
     }
 

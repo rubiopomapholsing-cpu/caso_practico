@@ -10,14 +10,14 @@
             <p class="mt-1 text-sm text-slate-500">La exportación por fecha usa la fecha de creación del registro en el sistema, no las fechas internas del Excel.</p>
         </div>
         <div class="flex flex-wrap gap-2">
-            <a href="{{ route('registros.create') }}" class="btn-primary">Nuevo registro</a>
-            <a href="{{ route('registros.exportar.hoy') }}" class="btn-secondary">Exportar registros de hoy</a>
-            <a href="{{ route('registros.exportar.todo') }}" class="btn-secondary">Exportar todo</a>
+            <a href="{{ route('registros.create', [], false) }}" class="btn-primary">Nuevo registro</a>
+            <a href="{{ route('registros.exportar.hoy', [], false) }}" class="btn-secondary">Exportar registros de hoy</a>
+            <a href="{{ route('registros.exportar.todo', [], false) }}" class="btn-secondary">Exportar todo</a>
         </div>
     </div>
 
     <section class="card-panel mt-6">
-        <form method="GET" action="{{ route('registros.index') }}" class="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <form method="GET" action="{{ route('registros.index', [], false) }}" class="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             <div>
                 <label class="form-label" for="anexo_id">Anexo</label>
                 <select class="form-input" id="anexo_id" name="anexo_id">
@@ -106,15 +106,15 @@
             </div>
             <div class="md:col-span-2 xl:col-span-5 flex flex-wrap gap-3">
                 <button type="submit" class="btn-primary">Filtrar</button>
-                <a href="{{ route('registros.index') }}" class="btn-secondary">Limpiar filtros</a>
-                <button type="submit" formaction="{{ route('registros.exportar.filtrado') }}" formmethod="GET" class="btn-secondary">Exportar resultado filtrado</button>
-                <a href="{{ route('registros.exportar.hoy') }}" class="btn-secondary">Exportar registros de hoy</a>
-                <a href="{{ route('registros.exportar.todo') }}" class="btn-secondary">Exportar todo</a>
+                <a href="{{ route('registros.index', [], false) }}" class="btn-secondary">Limpiar filtros</a>
+                <button type="submit" formaction="{{ route('registros.exportar.filtrado', [], false) }}" formmethod="GET" class="btn-secondary">Exportar resultado filtrado</button>
+                <a href="{{ route('registros.exportar.hoy', [], false) }}" class="btn-secondary">Exportar registros de hoy</a>
+                <a href="{{ route('registros.exportar.todo', [], false) }}" class="btn-secondary">Exportar todo</a>
             </div>
         </form>
     </section>
 
-    <form id="export-selected-form" method="POST" action="{{ route('registros.exportar.seleccionados') }}" class="hidden">
+    <form id="export-selected-form" method="POST" action="{{ route('registros.exportar.seleccionados', [], false) }}" class="hidden">
         @csrf
         <input type="hidden" name="anexo_id" value="{{ request('anexo_id') }}">
     </form>
@@ -164,7 +164,7 @@
                                     >
                                 </td>
                                 <td class="px-4 py-4 font-semibold text-slate-700">
-                                    <a href="{{ route('anexos.show', $registro->anexo) }}" class="hover:text-cyan-700">
+                                    <a href="{{ route('anexos.show', $registro->anexo, false) }}" class="hover:text-cyan-700">
                                         {{ $registro->anexo?->titulo ?: 'Sin anexo' }}
                                     </a>
                                 </td>
@@ -180,10 +180,10 @@
                                 <td class="px-4 py-4"><x-boolean-badge :value="$registro->efectividad" /></td>
                                 <td class="px-4 py-4">
                                     <div class="flex flex-wrap gap-2">
-                                        <a href="{{ route('registros.show', $registro) }}" class="btn-table">Ver</a>
-                                        <a href="{{ route('registros.edit', $registro) }}" class="btn-table">Editar</a>
-                                        <a href="{{ route('registros.exportar.excel', $registro) }}" class="btn-table">Exportar Excel</a>
-                                        <form action="{{ route('registros.destroy', $registro) }}" method="POST" onsubmit="return confirm('¿Deseas eliminar este registro?');">
+                                        <a href="{{ route('registros.show', $registro, false) }}" class="btn-table">Ver</a>
+                                        <a href="{{ route('registros.edit', $registro, false) }}" class="btn-table">Editar</a>
+                                        <a href="{{ route('registros.exportar.excel', $registro, false) }}" class="btn-table">Exportar Excel</a>
+                                        <form action="{{ route('registros.destroy', $registro, false) }}" method="POST" onsubmit="return confirm('¿Deseas eliminar este registro?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn-table-danger">Eliminar</button>

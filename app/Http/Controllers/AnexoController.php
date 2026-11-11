@@ -13,7 +13,11 @@ class AnexoController extends Controller
     public function index(): View
     {
         return view('anexos.index', [
-            'anexos' => Anexo::query()->withCount('registros')->orderBy('id')->paginate(12),
+            'anexos' => Anexo::query()
+                ->withCount('registros')
+                ->orderBy('id')
+                ->paginate(12)
+                ->withPath(route('anexos.index', [], false)),
             'configuracion' => ConfiguracionAnexo::query()->first(),
         ]);
     }
@@ -30,7 +34,7 @@ class AnexoController extends Controller
         $anexo = Anexo::query()->create($this->validatedData($request));
 
         return redirect()
-            ->route('anexos.show', $anexo)
+            ->away(route('anexos.show', $anexo, false))
             ->with('success', 'Anexo creado correctamente.');
     }
 
@@ -59,7 +63,7 @@ class AnexoController extends Controller
         $anexo->update($this->validatedData($request));
 
         return redirect()
-            ->route('anexos.show', $anexo)
+            ->away(route('anexos.show', $anexo, false))
             ->with('success', 'Anexo actualizado correctamente.');
     }
 
@@ -68,7 +72,7 @@ class AnexoController extends Controller
         $anexo->delete();
 
         return redirect()
-            ->route('anexos.index')
+            ->away(route('anexos.index', [], false))
             ->with('success', 'Anexo eliminado correctamente.');
     }
 

@@ -49,7 +49,7 @@
                 </h3>
             </div>
             <div>
-                <a href="{{ route('importaciones.create') }}" class="btn-primary">
+                <a href="{{ route('importaciones.create', [], false) }}" class="btn-primary">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
                     </svg>
@@ -77,7 +77,7 @@
                             <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">Configurado</span>
                         </td>
                         <td class="py-3.5 px-4 text-right">
-                            <a href="{{ route('anexos.index') }}" class="btn-table">Gestionar</a>
+                            <a href="{{ route('anexos.index', [], false) }}" class="btn-table">Gestionar</a>
                         </td>
                     </tr>
                     <tr class="hover:bg-slate-50/80 transition">
@@ -87,7 +87,7 @@
                             <span class="inline-flex items-center rounded-full bg-cyan-50 px-2.5 py-0.5 text-xs font-medium text-cyan-700">Activo</span>
                         </td>
                         <td class="py-3.5 px-4 text-right">
-                            <a href="{{ route('registros.index') }}" class="btn-table">Ver Registros</a>
+                            <a href="{{ route('registros.index', [], false) }}" class="btn-table">Ver Registros</a>
                         </td>
                     </tr>
                 </tbody>

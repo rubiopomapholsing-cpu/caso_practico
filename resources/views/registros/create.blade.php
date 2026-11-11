@@ -4,7 +4,7 @@
 @section('page-title', 'Nuevo registro')
 
 @section('content')
-    <form action="{{ route('registros.store') }}" method="POST">
+    <form action="{{ route('registros.store', [], false) }}" method="POST">
         @csrf
         @include('registros._form')
     </form>

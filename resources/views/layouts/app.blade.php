@@ -25,10 +25,10 @@
                 </div>
 
                 <nav class="space-y-2 px-4 pb-6">
-                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'nav-link-active' : '' }}">Dashboard</a>
-                    <a href="{{ route('anexos.index') }}" class="nav-link {{ request()->routeIs('anexos.*') ? 'nav-link-active' : '' }}">Configuración del Anexo</a>
-                    <a href="{{ route('registros.index') }}" class="nav-link {{ request()->routeIs('registros.*') ? 'nav-link-active' : '' }}">Registros Anexo A</a>
-                    <a href="{{ route('importaciones.create') }}" class="nav-link {{ request()->routeIs('importaciones.*') ? 'nav-link-active' : '' }}">Importar Excel</a>
+                    <a href="{{ route('dashboard', [], false) }}" class="nav-link {{ request()->routeIs('dashboard') ? 'nav-link-active' : '' }}">Dashboard</a>
+                    <a href="{{ route('anexos.index', [], false) }}" class="nav-link {{ request()->routeIs('anexos.*') ? 'nav-link-active' : '' }}">Configuración del Anexo</a>
+                    <a href="{{ route('registros.index', [], false) }}" class="nav-link {{ request()->routeIs('registros.*') ? 'nav-link-active' : '' }}">Registros Anexo A</a>
+                    <a href="{{ route('importaciones.create', [], false) }}" class="nav-link {{ request()->routeIs('importaciones.*') ? 'nav-link-active' : '' }}">Importar Excel</a>
                 </nav>
             </aside>
 
