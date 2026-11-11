@@ -11,8 +11,8 @@
         
         <div class="stat-card">
             <span class="stat-label">Empresa</span>
-            <p class="mt-2 text-base font-bold text-slate-800 truncate" title="EVALUACIÓN Y SUPERVISIÓN EN ENERGÍA E.I.R.L.">
-                EVALUACIÓN Y SUPERVISIÓN
+            <p class="mt-2 text-sm font-bold leading-6 text-slate-800">
+                EVALUACIÓN Y SUPERVISIÓN EN ENERGÍA E.I.R.L.
             </p>
         </div>
 
