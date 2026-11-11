@@ -54,7 +54,7 @@ class RegistroAnexoController extends Controller
         return view('registros.create', [
             'anexos' => $anexos,
             'selectedAnexoId' => $selectedAnexoId,
-            'nextItemPreview' => $selectedAnexoId ? $this->nextItem($selectedAnexoId) : null,
+            'codigosUnidad' => $this->codigosUnidad(),
             'estados' => $this->estadoOptions(),
         ]);
     }
@@ -100,7 +100,7 @@ class RegistroAnexoController extends Controller
             'registro' => $registro->load('anexo'),
             'anexos' => Anexo::query()->orderBy('id')->get(),
             'selectedAnexoId' => $registro->anexo_id,
-            'nextItemPreview' => $registro->item,
+            'codigosUnidad' => $this->codigosUnidad(),
             'estados' => $this->estadoOptions(),
         ]);
     }
@@ -191,6 +191,17 @@ class RegistroAnexoController extends Controller
     private function estadoOptions(): array
     {
         return config('anexo.estado_entregable_options');
+    }
+
+    private function codigosUnidad(): array
+    {
+        return RegistroAnexo::query()
+            ->whereNotNull('codigo_unidad')
+            ->where('codigo_unidad', '!=', '')
+            ->distinct()
+            ->orderBy('codigo_unidad')
+            ->pluck('codigo_unidad')
+            ->all();
     }
 
     private function applyDefaultAnexoIfNeeded(Request $request): void

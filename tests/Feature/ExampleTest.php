@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Anexo;
+use App\Models\RegistroAnexo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -36,5 +38,35 @@ class ExampleTest extends TestCase
             'estado' => 'activo',
         ])
             ->assertRedirect('/anexos/1');
+    }
+
+    public function test_record_form_uses_existing_unit_codes_and_autogenerates_empty_item(): void
+    {
+        $anexo = Anexo::query()->create(['titulo' => 'Primer entregable']);
+
+        RegistroAnexo::query()->create([
+            'anexo_id' => $anexo->id,
+            'item' => 1,
+            'codigo_unidad' => 'U-001',
+        ]);
+
+        $this->get(route('registros.create'))
+            ->assertOk()
+            ->assertSee('value="U-001"', false)
+            ->assertSee('placeholder="Déjalo vacío para autogenerar"', false)
+            ->assertSee('value="" placeholder="Déjalo vacío para autogenerar"', false);
+
+        $this->post(route('registros.store'), [
+            'anexo_id' => $anexo->id,
+            'item' => '',
+            'codigo_unidad' => 'U-001',
+        ])
+            ->assertRedirect('/registros/2');
+
+        $this->assertDatabaseHas('registros_anexo', [
+            'anexo_id' => $anexo->id,
+            'item' => 2,
+            'codigo_unidad' => 'U-001',
+        ]);
     }
 }

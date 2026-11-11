@@ -36,11 +36,18 @@
             @endif
             <div>
                 <label class="form-label" for="item">{{ config('anexo.column_labels.item') }}</label>
-                <input class="form-input" type="number" min="1" id="item" name="item" value="{{ old('item', $registro->item ?? $nextItemPreview ?? '') }}" placeholder="Déjalo vacío para autogenerar">
+                <input class="form-input" type="number" min="1" id="item" name="item" value="{{ old('item', $registro->item ?? '') }}" placeholder="Déjalo vacío para autogenerar">
             </div>
             <div>
                 <label class="form-label" for="codigo_unidad">{{ config('anexo.column_labels.codigo_unidad') }}</label>
-                <input class="form-input" type="text" id="codigo_unidad" name="codigo_unidad" value="{{ old('codigo_unidad', $registro->codigo_unidad ?? '') }}">
+                <select class="form-input" id="codigo_unidad" name="codigo_unidad">
+                    <option value="">Seleccione</option>
+                    @foreach ($codigosUnidad as $codigoUnidad)
+                        <option value="{{ $codigoUnidad }}" @selected(old('codigo_unidad', $registro->codigo_unidad ?? '') === $codigoUnidad)>
+                            {{ $codigoUnidad }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div class="md:col-span-2">
                 <label class="form-label" for="expediente_siged">{{ config('anexo.column_labels.expediente_siged') }}</label>
