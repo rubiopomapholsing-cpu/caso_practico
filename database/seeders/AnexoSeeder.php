@@ -10,11 +10,12 @@ class AnexoSeeder extends Seeder
     public function run(): void
     {
         Anexo::query()->updateOrCreate(
-            ['titulo' => '1ER ENTREGABLE'],
+            ['id' => 1],
             [
-                'periodo_ejecucion_contractual' => 'DESDE EL 18 DE NOVIEMBRE DE 2024 AL 17 DE DICIEMBRE DE 2024',
-                'fecha_contractual_ingreso_entregable' => '2024-12-17',
-                'responsable' => null,
+                'titulo' => 'PRIMER ENTREGABLE',
+                'periodo_ejecucion_contractual' => 'DESDE EL 06 DE ABRIL DE 2026 AL 05 DE MAYO DE 2026',
+                'fecha_contractual_ingreso_entregable' => '2026-04-06',
+                'responsable' => 'DARWIN UZURIAGA CLAUDIO',
                 'estado' => 'activo',
             ],
         );
