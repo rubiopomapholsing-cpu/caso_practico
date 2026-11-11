@@ -4,9 +4,12 @@
 
 <div class="space-y-6">
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Datos del anexo</h3>
-            <p class="mt-1 text-sm text-slate-500">La empresa es única. Aquí administras cada anexo y sus fechas operativas.</p>
+        <div class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+                <h3 class="section-title">Identificación del anexo</h3>
+                <p class="section-description">Define un título fácil de reconocer y asigna a la persona responsable.</p>
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
@@ -22,9 +25,12 @@
     </section>
 
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Fechas y estado</h3>
-            <p class="mt-1 text-sm text-slate-500">Estos datos cambian por cada anexo y se reflejan en la exportación Excel.</p>
+        <div class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+                <h3 class="section-title">Periodo y seguimiento</h3>
+                <p class="section-description">Estas fechas y el estado se reflejan en la exportación Excel de este anexo.</p>
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

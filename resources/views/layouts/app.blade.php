@@ -20,7 +20,7 @@
                     <div>
                         <p class="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300">SANTRIX</p>
                         <h1 class="mt-2 font-display text-2xl font-bold">ANEXO LOCAL</h1>
-                        <p class="mt-2 text-sm text-slate-400">Gestión local del Anexo A en Laravel + SQLite.</p>
+                        <p class="mt-2 text-sm text-slate-400">Gestión institucional y control de anexos.</p>
                     </div>
                 </div>
 

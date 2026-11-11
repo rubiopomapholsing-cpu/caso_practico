@@ -6,10 +6,11 @@
 
 <div class="space-y-6">
     <section class="card-panel">
-        <div class="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div class="section-heading">
+            <span class="section-number">01</span>
             <div>
-                <h3 class="font-display text-xl font-bold text-slate-900">Datos de asignación</h3>
-                <p class="mt-1 text-sm text-slate-500">Puedes escribir el ITEM manualmente. Si lo dejas vacío, el sistema calculará el siguiente disponible para ese anexo.</p>
+                <h3 class="section-title">Asignación y expediente</h3>
+                <p class="section-description">Selecciona el anexo y completa los códigos del registro. El ITEM se calcula automáticamente si lo dejas vacío.</p>
             </div>
         </div>
 
@@ -65,8 +66,12 @@
     </section>
 
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Datos del agente</h3>
+        <div class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+                <h3 class="section-title">Datos del agente</h3>
+                <p class="section-description">Identifica la empresa supervisada y el personal responsable.</p>
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
@@ -82,8 +87,12 @@
     </section>
 
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Supervisión/Fiscalización</h3>
+        <div class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+                <h3 class="section-title">Supervisión y entregable</h3>
+                <p class="section-description">Registra la actividad, el informe y el resultado de la visita.</p>
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -117,8 +126,12 @@
     </section>
 
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Fechas y estado</h3>
+        <div class="section-heading">
+            <span class="section-number">04</span>
+            <div>
+                <h3 class="section-title">Fechas y estado</h3>
+                <p class="section-description">Controla cuándo ocurrió la visita, la derivación y el estado actual.</p>
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -143,11 +156,15 @@
     </section>
 
     <section class="card-panel">
-        <div class="mb-5">
-            <h3 class="font-display text-xl font-bold text-slate-900">Observaciones</h3>
-            @if ($selectedAnexo)
-                <p class="mt-1 text-sm text-slate-500">Trabajando sobre {{ $selectedAnexo->titulo }}.</p>
-            @endif
+        <div class="section-heading">
+            <span class="section-number">05</span>
+            <div>
+                <h3 class="section-title">Notas y observaciones</h3>
+                <p class="section-description">Añade comentarios para conservar el contexto de la gestión.</p>
+                @if ($selectedAnexo)
+                    <p class="mt-2 text-sm font-medium text-cyan-800">Anexo: {{ $selectedAnexo->titulo }}</p>
+                @endif
+            </div>
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">

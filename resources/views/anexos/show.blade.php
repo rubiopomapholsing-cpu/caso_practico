@@ -51,7 +51,7 @@
             </div>
         @else
             <div class="mt-6 overflow-x-auto">
-                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                <table class="data-table">
                     <thead>
                         <tr class="text-left text-slate-500">
                             <th class="px-4 py-3">{{ config('anexo.column_labels.item') }}</th>

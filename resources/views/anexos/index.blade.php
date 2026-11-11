@@ -15,20 +15,20 @@
     </div>
 
     <section class="card-panel mt-6">
-        <div class="mb-6 grid gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 md:grid-cols-2 xl:grid-cols-4">
-            <div>
+        <div class="mb-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <div class="info-card">
                 <p class="detail-label">{{ config('anexo.entregable_labels.empresa_supervisora') }}</p>
                 <p class="detail-value">{{ $configuracion?->empresa ?: config('anexo.base_entregable.empresa_supervisora') }}</p>
             </div>
-            <div>
+            <div class="info-card">
                 <p class="detail-label">{{ config('anexo.entregable_labels.ruc') }}</p>
                 <p class="detail-value">{{ $configuracion?->ruc ?: config('anexo.base_entregable.ruc') }}</p>
             </div>
-            <div>
+            <div class="info-card">
                 <p class="detail-label">{{ config('anexo.entregable_labels.numero_contrato') }}</p>
                 <p class="detail-value">{{ $configuracion?->contrato ?: config('anexo.base_entregable.numero_contrato') }}</p>
             </div>
-            <div>
+            <div class="info-card">
                 <p class="detail-label">{{ config('anexo.entregable_labels.nombre_servicio') }}</p>
                 <p class="detail-value">{{ $configuracion?->nombre_servicio_contratado ?: config('anexo.base_entregable.nombre_servicio') }}</p>
             </div>
@@ -41,7 +41,7 @@
             </div>
         @else
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                <table class="data-table">
                     <thead>
                         <tr class="text-left text-slate-500">
                             <th class="px-4 py-3">ID</th>

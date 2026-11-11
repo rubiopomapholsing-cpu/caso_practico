@@ -25,7 +25,27 @@
 
 @layer components {
     .card-panel {
-        @apply rounded-3xl border border-white/70 bg-white/90 p-6 shadow-sm ring-1 ring-slate-200/70;
+        @apply rounded-3xl border border-slate-200/80 bg-white/95 p-6 shadow-md shadow-slate-900/5;
+    }
+
+    .info-card {
+        @apply h-full rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 transition hover:border-cyan-200 hover:bg-cyan-50/40;
+    }
+
+    .section-heading {
+        @apply mb-6 flex items-start gap-3 border-b border-slate-100 pb-5;
+    }
+
+    .section-number {
+        @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-cyan-50 font-display text-sm font-bold text-cyan-800 ring-1 ring-cyan-100;
+    }
+
+    .section-title {
+        @apply font-display text-lg font-bold text-slate-900;
+    }
+
+    .section-description {
+        @apply mt-1 text-sm leading-6 text-slate-500;
     }
 
     .stat-card {
@@ -69,7 +89,7 @@
     }
 
     .form-input {
-        @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none ring-0 transition placeholder:text-slate-400 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-100;
+        @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition hover:border-slate-300 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100;
     }
 
     .form-textarea {
@@ -86,5 +106,21 @@
 
     .detail-value {
         @apply mt-2 text-sm leading-6 text-slate-700;
+    }
+
+    .data-table {
+        @apply min-w-full divide-y divide-slate-200 text-sm;
+    }
+
+    .data-table thead {
+        @apply bg-slate-50/80 text-xs font-semibold uppercase tracking-wide text-slate-500;
+    }
+
+    .data-table tbody {
+        @apply divide-y divide-slate-100;
+    }
+
+    .data-table tbody tr {
+        @apply transition hover:bg-cyan-50/40;
     }
 }

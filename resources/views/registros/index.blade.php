@@ -131,7 +131,7 @@
                 <p class="text-sm text-slate-500">Marca los checkboxes de las filas que quieras incluir en un solo Excel.</p>
             </div>
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                <table class="data-table">
                     <thead>
                         <tr class="text-left text-slate-500">
                             <th class="px-4 py-3">
